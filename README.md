@@ -83,32 +83,24 @@ export const getStaticProps: GetStaticProps = async () => {
 # Criar página de post
 - [ ] Requisitar post especifico
 ```javascript
-export const getStaticPaths: GetStaticPaths = () => {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   
   const query = gql`
       {
         post(where: {slug: "${params?.slug}"}) {
           title
-          content {
+          body {
             html
           }
         }
       }
     `
-  })
   const { post } = await hygraph.request(query)
-  const { title, content } = posts
+  const { title, body } = post
   return {
     props: {
       title,
-      content: content.html
+      body,
     },
     revalidate: 60 * 60 * 24 // every 24 hours
   }
