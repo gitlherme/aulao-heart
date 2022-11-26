@@ -41,6 +41,7 @@ content: [
 - [ ] Criar conta na Hygraph
 - [ ] Criar um Schema Post (Content Type)
   - [ ] Title
+  - [ ] Headline
   - [ ] Slug
   - [ ] Content
   - [ ] Author
@@ -49,4 +50,67 @@ content: [
 
 # Criar configuracao do GraphQL
 - Dentro da pasta services, criar um `hygraph.ts`.
-- 
+```javascript
+// hygraph.ts
+import { GraphQLClient } from 'graphql-request';
+export const hygraph = new GraphQLClient(
+  'LINK PARA O SEU CONTENT PUBLIC URL'
+);
+```
+# Criar página de post list
+- [ ] Requisitar todos os posts
+```javascript
+export const getStaticProps: GetStaticProps = async () => {
+  const query = gql`
+    {
+      posts {
+        title,
+        headline,
+      }
+    }
+  `
+  const { posts } = await hygraph.request(query)
+  const { title, headline } = posts
+  return {
+    props: {
+      title,
+      headline
+    },
+  }
+}
+```
+
+# Criar página de post
+- [ ] Requisitar post especifico
+```javascript
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: [],
+    fallback: 'blocking'
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  
+  const query = gql`
+      {
+        post(where: {slug: "${params?.slug}"}) {
+          title
+          content {
+            html
+          }
+        }
+      }
+    `
+  })
+  const { post } = await hygraph.request(query)
+  const { title, content } = posts
+  return {
+    props: {
+      title,
+      content: content.html
+    },
+    revalidate: 60 * 60 * 24 // every 24 hours
+  }
+}
+```
