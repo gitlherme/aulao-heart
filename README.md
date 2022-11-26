@@ -89,20 +89,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       {
         post(where: {slug: "${params?.slug}"}) {
           title
-          body {
+          content {
             html
           }
         }
       }
     `
   const { post } = await hygraph.request(query)
-  const { title, body } = post
+  const { title, content } = post
   return {
     props: {
       title,
-      body,
-    },
-    revalidate: 60 * 60 * 24 // every 24 hours
+      content,
+    }
   }
 }
 ```
+
+# Materiais de Apoio
+1. [getStaticProps and getServerSideProps | What’s the Difference?](https://www.ohmycrawl.com/getstaticprops-vs-getserversideprops/#gspvsgssp-difference)
+2. [What is getStaticPaths() in Nextjs?](https://dev.to/akuks/what-is-getstaticpaths-in-nextjs-5ee5)
