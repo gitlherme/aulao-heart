@@ -109,3 +109,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 # Materiais de Apoio
 1. [getStaticProps and getServerSideProps | What’s the Difference?](https://www.ohmycrawl.com/getstaticprops-vs-getserversideprops/#gspvsgssp-difference)
 2. [What is getStaticPaths() in Nextjs?](https://dev.to/akuks/what-is-getstaticpaths-in-nextjs-5ee5)
+3. [REST vs GraphQL APIs, the Good, the Bad, the Ugly](https://www.moesif.com/blog/technical/graphql/REST-vs-GraphQL-APIs-the-good-the-bad-the-ugly/)
