@@ -1,13 +1,13 @@
 # Figma
 [Figma](https://www.figma.com/file/bO5ykctpVkAYkJTNmI7L6k/Aul%C3%A3o-Heart?node-id=0%3A1&t=d35Sx373qqFAuW6I-1)
 # Criar projeto
-- [ ] Criar projeto com `npx create-next-app blog --ts --use-npm`
+- [x] Criar projeto com `npx create-next-app blog --ts --use-npm`
 ---
 
 # Instalar dependências
-- [ ] [GraphQL](https://graphql.org/)
-- [ ] [GraphQL Request](https://github.com/prisma-labs/graphql-request)
-- [ ] [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [x] [GraphQL](https://graphql.org/)
+- [x] [GraphQL Request](https://github.com/prisma-labs/graphql-request)
+- [x] [Tailwind CSS](https://tailwindcss.com/docs/installation)
 
 ```bash
 npm install graphql-request graphql
@@ -25,7 +25,7 @@ npx tailwindcss init -p
 
 ```javascript
 content: [
-  "./pages/**/*.{js,ts,jsx,tsx}",
+  "./src/pages/**/*.{js,ts,jsx,tsx}",
 ],
 ```
 
@@ -38,15 +38,14 @@ content: [
 ```
 
 # [Hygraph](https://hygraph.com/)
-- [ ] Criar conta na Hygraph
-- [ ] Criar um Schema Post (Content Type)
-  - [ ] Title
-  - [ ] Headline
-  - [ ] Slug
-  - [ ] Content
-  - [ ] Author
-  - [ ] Date
-- [ ] Criar um Content do tipo Post
+- [x] Criar conta na Hygraph
+- [x] Criar um Schema Post (Content Type)
+  - [x] Title
+  - [x] Headline
+  - [x] Slug
+  - [x] Content
+  - [x] Author
+- [x] Criar um Content do tipo Post
 
 # Criar configuracao do GraphQL
 - Dentro da pasta services, criar um `hygraph.ts`.
@@ -81,7 +80,7 @@ export const getStaticProps: GetStaticProps = async () => {
 ```
 
 # Criar página de post
-- [ ] Requisitar post especifico
+- [x] Requisitar post especifico
 ```javascript
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   
